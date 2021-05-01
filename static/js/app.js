@@ -1,4 +1,8 @@
 // from data.js
-var tableData = data;
+let tableData = data;
+let tbody = d3.select("tbody");
 
-// YOUR CODE HERE!
+data.forEach(function(sightings) {
+    console.log(sightings);
+    let row = tbody.append("tr");
+})
