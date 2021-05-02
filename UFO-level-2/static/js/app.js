@@ -18,6 +18,7 @@ function populate_table(data){
 };
 populate_table(data);
 
+// Populates dropdown menus with uniqe entries from data elements
 function populate_cities(data){
     d3.select("#city").html("")
     d3.select("#city").append("option").text("Any")
@@ -38,10 +39,15 @@ function populate_contries(data){
     country.forEach((option)=>{
         d3.select("#country").append("option").text(option)})
 };
-//     d3.select("#country>option").text(country)
-//     d3.select("#shape>option").text(shape)
-// };
 
-populate_cities(data)
-populate_states(data)
-populate_contries(data)
+function populate_shapes(data){
+    d3.select("#shape").html("")
+    d3.select("#shape").append("option").text("Any")
+    shape.forEach((option)=>{
+        d3.select("#shape").append("option").text(option)})
+};
+
+populate_cities(data);
+populate_states(data);
+populate_contries(data);
+populate_shapes(data);
