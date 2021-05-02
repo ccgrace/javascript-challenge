@@ -24,11 +24,24 @@ function populate_cities(data){
     city.forEach((option)=>{
         d3.select("#city").append("option").text(option)})
 };
-    
-//     d3.select("#state>option").text(state)
+
+function populate_states(data){
+    d3.select("#state").html("")
+    d3.select("#state").append("option").text("Any")
+    state.forEach((option)=>{
+        d3.select("#state").append("option").text(option)})
+};
+
+function populate_contries(data){
+    d3.select("#country").html("")
+    d3.select("#country").append("option").text("Any")
+    country.forEach((option)=>{
+        d3.select("#country").append("option").text(option)})
+};
 //     d3.select("#country>option").text(country)
 //     d3.select("#shape>option").text(shape)
 // };
 
 populate_cities(data)
-
+populate_states(data)
+populate_contries(data)
