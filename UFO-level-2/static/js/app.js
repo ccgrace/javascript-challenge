@@ -18,9 +18,17 @@ function populate_table(data){
 };
 populate_table(data);
 
-function populate_menus(data){
-        d3.select("#city>option").text(city)
+function populate_cities(data){
+    d3.select("#city").html("")
+    d3.select("#city").append("option").text("Any")
+    city.forEach((option)=>{
+        d3.select("#city").append("option").text(option)})
 };
+    
+//     d3.select("#state>option").text(state)
+//     d3.select("#country>option").text(country)
+//     d3.select("#shape>option").text(shape)
+// };
 
-populate_menus(data)
+populate_cities(data)
 
