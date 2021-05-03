@@ -51,3 +51,21 @@ populate_cities(data);
 populate_states(data);
 populate_contries(data);
 populate_shapes(data);
+
+let filterTable = d3.select(".btn")
+
+filterTable.on("click", function filter_table(data){
+    let filteredCity = d3.select("#city").html("")
+    let filteredState = d3.select("#state").html("")
+    let filteredCountry = d3.select("#country").html("")
+    let filteredShape = d3.select("#shape").html("")
+    data.forEach((sightings) => {
+        let row = tbody.append("tr");
+        Object.entries(sightings).forEach(([key, value]) => {
+            if (value = filteredCity || filteredState || filteredCountry || filteredShape){
+                let cell = row.append("td");
+                cell.text(value);
+            }
+        });
+    });
+});
