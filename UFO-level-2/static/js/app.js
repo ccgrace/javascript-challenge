@@ -20,8 +20,11 @@ populate_table(data);
 
 // Populates dropdown menus with uniqe entries from data elements
 function populate_cities(data){
+// grabs city menu and clears contents 
     d3.select("#city").html("")
+// appends an ANY element to maintain the option
     d3.select("#city").append("option").text("Any")
+// grabs city menu and appends a new option elemnt
     city.forEach((option)=>{
         d3.select("#city").append("option").text(option)})
 };
@@ -55,10 +58,11 @@ populate_shapes(data);
 let filterTable = d3.select(".btn")
 
 filterTable.on("click", function filter_table(data){
-    let filteredCity = d3.select("#city").html("")
-    let filteredState = d3.select("#state").html("")
-    let filteredCountry = d3.select("#country").html("")
-    let filteredShape = d3.select("#shape").html("")
+    let filteredCity = d3.select("#city");
+    let filteredState = d3.select("#state");
+    let filteredCountry = d3.select("#country");
+    let filteredShape = d3.select("#shape");
+    tbody.html("");
     data.forEach((sightings) => {
         let row = tbody.append("tr");
         Object.entries(sightings).forEach(([key, value]) => {
