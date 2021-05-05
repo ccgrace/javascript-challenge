@@ -57,19 +57,25 @@ populate_shapes(data);
 
 let filterTable = d3.select(".btn")
 
-filterTable.on("click", function filter_table(data){
-    let filteredCity = d3.select("#city");
-    let filteredState = d3.select("#state");
-    let filteredCountry = d3.select("#country");
-    let filteredShape = d3.select("#shape");
+filterTable.on("click", function filter_table(){
     tbody.html("");
-    data.forEach((sightings) => {
+    let date = d3.select("#datetime").property("value")
+    let filteredCity = d3.select("#city").property("value");
+    let filteredState = d3.select("#state").property("value");
+    let filteredCountry = d3.select("#country").property("value");
+    let filteredShape = d3.select("#shape").property("value");
+    dateFilter = data.filter(sightings => sightings.datetime === date)
+    cityFilter = data.filter(sightings => sightings.city === filteredCity)
+    stateFilter = data.filter(sightings => sightings.state === filteredState)
+    countryFilter = data.filter(sightings => sightings.country === filteredCountry)
+    shapeFilter = data.filter(sightings => sightings.shape === filteredShape)
+
+
+    dateFilter.forEach((sightings) => {
         let row = tbody.append("tr");
         Object.entries(sightings).forEach(([key, value]) => {
-            if (value = filteredCity || filteredState || filteredCountry || filteredShape){
-                let cell = row.append("td");
-                cell.text(value);
-            }
+            let cell = row.append("td");
+            cell.text(value);
         });
     });
 });
